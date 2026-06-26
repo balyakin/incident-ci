@@ -17,6 +17,7 @@ FieldLineIndex: TypeAlias = Mapping[str, SourceLocation]
 
 YAML_INFO_STRINGS = {"yaml", "yml"}
 INCIDENT_CARD_KEY = "incident_card"
+INCIDENT_CARD_CANDIDATE_RE = re.compile(rf"^(?:{INCIDENT_CARD_KEY}:|-\s+{INCIDENT_CARD_KEY}(?::|\s*$))")
 TOP_LEVEL_FIELD_RE = re.compile(r"^  ([A-Za-z_][A-Za-z0-9_]*):")
 
 
@@ -192,8 +193,7 @@ def _find_incident_yaml_blocks(file_path: Path, tokens: Sequence[Token]) -> List
 
 
 def _has_top_level_incident_card_key(yaml_text: str) -> bool:
-    key_prefix = f"{INCIDENT_CARD_KEY}:"
-    return any(line.startswith(key_prefix) for line in yaml_text.splitlines())
+    return any(INCIDENT_CARD_CANDIDATE_RE.match(line) is not None for line in yaml_text.splitlines())
 
 
 def _token_location(file_path: Path, token: Token) -> SourceLocation:
