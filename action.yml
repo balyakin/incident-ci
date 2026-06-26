@@ -1,0 +1,41 @@
+name: incident-ci
+description: Validate Incident Card files from a pull request changed-file list
+inputs:
+  config-path:
+    description: Path to .incident-ci.yaml
+    required: false
+    default: .incident-ci.yaml
+  changed-files-path:
+    description: Path to a text file containing changed files
+    required: false
+    default: changed-files.txt
+  labels:
+    description: Comma-separated pull request labels
+    required: false
+    default: ""
+  format:
+    description: Report format
+    required: false
+    default: sarif
+  output:
+    description: Report output path
+    required: false
+    default: incident-ci.sarif
+runs:
+  using: composite
+  steps:
+    - name: Validate Incident Card
+      shell: bash
+      env:
+        CONFIG_PATH: ${{ inputs.config-path }}
+        FILES_FROM: ${{ inputs.changed-files-path }}
+        LABELS: ${{ inputs.labels }}
+        REPORT_FORMAT: ${{ inputs.format }}
+        OUTPUT_PATH: ${{ inputs.output }}
+      run: |
+        uv run incident-ci check \
+          --config "${CONFIG_PATH}" \
+          --files-from "${FILES_FROM}" \
+          --labels "${LABELS}" \
+          --format "${REPORT_FORMAT}" \
+          --output "${OUTPUT_PATH}"

@@ -1,0 +1,2 @@
+tests/fixtures/valid_detected.md
+tests/fixtures/valid_resolved.md

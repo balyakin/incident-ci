@@ -1,0 +1,51 @@
+name: Incident Card
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - labeled
+      - unlabeled
+
+permissions:
+  contents: read
+  pull-requests: read
+  security-events: write
+
+jobs:
+  incident-card:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build changed file list
+        run: |
+          git diff --name-only --diff-filter=AM \
+            "${{ github.event.pull_request.base.sha }}" \
+            "${{ github.event.pull_request.head.sha }}" > changed-files.txt
+
+      - name: Install incident-ci
+        run: uv sync --frozen
+
+      - name: Validate Incident Card
+        env:
+          PR_LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        run: |
+          uv run incident-ci check \
+            --config .incident-ci.yaml \
+            --files-from changed-files.txt \
+            --labels "${PR_LABELS}" \
+            --format sarif \
+            --output incident-ci.sarif
+
+      - name: Upload SARIF
+        if: always()
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: incident-ci.sarif
+          category: incident-card

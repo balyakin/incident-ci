@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.coverage
+.hypothesis/
+.pytest_cache/
+.venv/
+.idea/

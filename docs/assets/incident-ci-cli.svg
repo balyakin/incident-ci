@@ -1,0 +1,31 @@
+<svg width="1120" height="620" viewBox="0 0 1120 620" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">incident-ci CLI screenshot</title>
+  <desc id="desc">A terminal window showing incident-ci validating an Incident Card successfully.</desc>
+  <rect width="1120" height="620" rx="0" fill="#f6f8fa"/>
+  <rect x="70" y="54" width="980" height="512" rx="10" fill="#0d1117"/>
+  <rect x="70" y="54" width="980" height="46" rx="10" fill="#161b22"/>
+  <path d="M70 90H1050V100H70V90Z" fill="#161b22"/>
+  <circle cx="99" cy="77" r="7" fill="#ff5f56"/>
+  <circle cx="123" cy="77" r="7" fill="#ffbd2e"/>
+  <circle cx="147" cy="77" r="7" fill="#27c93f"/>
+  <text x="560" y="83" text-anchor="middle" fill="#8b949e" font-family="DejaVu Sans Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="14">incident-ci</text>
+
+  <text x="104" y="142" fill="#7ee787" font-family="DejaVu Sans Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">$</text>
+  <text x="130" y="142" fill="#c9d1d9" font-family="DejaVu Sans Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">uv run incident-ci check incidents/INC-2026-001.md --config .incident-ci.yaml</text>
+  <text x="104" y="184" fill="#c9d1d9" font-family="DejaVu Sans Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">Incident Card validation passed</text>
+
+  <text x="104" y="256" fill="#7ee787" font-family="DejaVu Sans Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">$</text>
+  <text x="130" y="256" fill="#c9d1d9" font-family="DejaVu Sans Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">uv run incident-ci check --config .incident-ci.yaml \</text>
+  <text x="130" y="290" fill="#c9d1d9" font-family="DejaVu Sans Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">  --files-from changed-files.txt --labels incident \</text>
+  <text x="130" y="324" fill="#c9d1d9" font-family="DejaVu Sans Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="18">  --format sarif --output incident-ci.sarif</text>
+
+  <rect x="104" y="372" width="884" height="112" rx="8" fill="#161b22" stroke="#30363d"/>
+  <text x="130" y="410" fill="#79c0ff" font-family="DejaVu Sans Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">tool</text>
+  <text x="210" y="410" fill="#c9d1d9" font-family="DejaVu Sans Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">incident-ci</text>
+  <text x="130" y="444" fill="#79c0ff" font-family="DejaVu Sans Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">report</text>
+  <text x="210" y="444" fill="#c9d1d9" font-family="DejaVu Sans Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">SARIF 2.1.0 for GitHub code scanning annotations</text>
+  <text x="130" y="478" fill="#79c0ff" font-family="DejaVu Sans Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">exit</text>
+  <text x="210" y="478" fill="#c9d1d9" font-family="DejaVu Sans Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="17">0 when the Incident Card is valid</text>
+
+  <text x="104" y="528" fill="#8b949e" font-family="DejaVu Sans Mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="16">A small guardrail for teams that want incident records reviewed before merge.</text>
+</svg>

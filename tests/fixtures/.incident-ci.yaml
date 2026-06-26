@@ -1,0 +1,14 @@
+schema_version: 1
+required_labels:
+  - incident
+exempt_labels:
+  - incident-card-exempt
+strict: true
+incident_file_globs:
+  - tests/fixtures/*.md
+  - tests/fixtures/incidents/**/*.md
+  - incidents/**/*.md
+allowed_services:
+  - payment-api
+  - auth-api
+  - order-api
