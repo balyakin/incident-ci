@@ -193,11 +193,7 @@ def _find_incident_yaml_blocks(file_path: Path, tokens: Sequence[Token]) -> List
 
 def _has_top_level_incident_card_key(yaml_text: str) -> bool:
     key_prefix = f"{INCIDENT_CARD_KEY}:"
-    for line in yaml_text.splitlines():
-        if line.startswith(key_prefix):
-            return True
-
-    return False
+    return any(line.startswith(key_prefix) for line in yaml_text.splitlines())
 
 
 def _token_location(file_path: Path, token: Token) -> SourceLocation:
